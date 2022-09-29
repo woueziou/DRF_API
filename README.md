@@ -75,6 +75,9 @@ Class | Method | HTTP request | Description
 [*ControllCheckApi*](doc/ControllCheckApi.md) | [**apiControllCheckCreateControllCheckUpPost**](doc/ControllCheckApi.md#apicontrollcheckcreatecontrollcheckuppost) | **POST** /api/ControllCheck/createControllCheckUp | 
 [*ControllCheckApi*](doc/ControllCheckApi.md) | [**apiControllCheckGetCheckUpListBySessionGet**](doc/ControllCheckApi.md#apicontrollcheckgetcheckuplistbysessionget) | **GET** /api/ControllCheck/getCheckUpListBySession | 
 [*ControllCheckApi*](doc/ControllCheckApi.md) | [**apiControllCheckMakeControllCheckPost**](doc/ControllCheckApi.md#apicontrollcheckmakecontrollcheckpost) | **POST** /api/ControllCheck/makeControllCheck | 
+[*ParamsApi*](doc/ParamsApi.md) | [**apiParamsCreateSectionPost**](doc/ParamsApi.md#apiparamscreatesectionpost) | **POST** /api/Params/createSection | 
+[*ParamsApi*](doc/ParamsApi.md) | [**apiParamsGetPreviousSectionGet**](doc/ParamsApi.md#apiparamsgetprevioussectionget) | **GET** /api/Params/getPreviousSection | 
+[*ParamsApi*](doc/ParamsApi.md) | [**apiParamsGetSectionCheckCountGet**](doc/ParamsApi.md#apiparamsgetsectioncheckcountget) | **GET** /api/Params/getSectionCheckCount | 
 
 
 ## Documentation For Models
@@ -86,8 +89,10 @@ Class | Method | HTTP request | Description
  - [CheckUpResponse](doc/CheckUpResponse.md)
  - [ControllCheckRequest](doc/ControllCheckRequest.md)
  - [ControllCheckUpResponse](doc/ControllCheckUpResponse.md)
+ - [CreateSection](doc/CreateSection.md)
  - [ROLE](doc/ROLE.md)
- - [Session](doc/Session.md)
+ - [Section](doc/Section.md)
+ - [SectionResponse](doc/SectionResponse.md)
  - [SignInModel](doc/SignInModel.md)
  - [SignupModel](doc/SignupModel.md)
  - [UserInfo](doc/UserInfo.md)

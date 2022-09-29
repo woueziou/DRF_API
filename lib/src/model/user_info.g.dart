@@ -12,9 +12,9 @@ class _$UserInfo extends UserInfo {
   @override
   final String? fullName;
   @override
-  final String? sessionId;
+  final String? sectionId;
   @override
-  final String? sessionName;
+  final String? sectionName;
   @override
   final String? role;
 
@@ -22,7 +22,7 @@ class _$UserInfo extends UserInfo {
       (new UserInfoBuilder()..update(updates))._build();
 
   _$UserInfo._(
-      {this.id, this.fullName, this.sessionId, this.sessionName, this.role})
+      {this.id, this.fullName, this.sectionId, this.sectionName, this.role})
       : super._();
 
   @override
@@ -38,8 +38,8 @@ class _$UserInfo extends UserInfo {
     return other is UserInfo &&
         id == other.id &&
         fullName == other.fullName &&
-        sessionId == other.sessionId &&
-        sessionName == other.sessionName &&
+        sectionId == other.sectionId &&
+        sectionName == other.sectionName &&
         role == other.role;
   }
 
@@ -48,8 +48,8 @@ class _$UserInfo extends UserInfo {
     return $jf($jc(
         $jc(
             $jc($jc($jc(0, id.hashCode), fullName.hashCode),
-                sessionId.hashCode),
-            sessionName.hashCode),
+                sectionId.hashCode),
+            sectionName.hashCode),
         role.hashCode));
   }
 
@@ -58,8 +58,8 @@ class _$UserInfo extends UserInfo {
     return (newBuiltValueToStringHelper(r'UserInfo')
           ..add('id', id)
           ..add('fullName', fullName)
-          ..add('sessionId', sessionId)
-          ..add('sessionName', sessionName)
+          ..add('sectionId', sectionId)
+          ..add('sectionName', sectionName)
           ..add('role', role))
         .toString();
   }
@@ -76,13 +76,13 @@ class UserInfoBuilder implements Builder<UserInfo, UserInfoBuilder> {
   String? get fullName => _$this._fullName;
   set fullName(String? fullName) => _$this._fullName = fullName;
 
-  String? _sessionId;
-  String? get sessionId => _$this._sessionId;
-  set sessionId(String? sessionId) => _$this._sessionId = sessionId;
+  String? _sectionId;
+  String? get sectionId => _$this._sectionId;
+  set sectionId(String? sectionId) => _$this._sectionId = sectionId;
 
-  String? _sessionName;
-  String? get sessionName => _$this._sessionName;
-  set sessionName(String? sessionName) => _$this._sessionName = sessionName;
+  String? _sectionName;
+  String? get sectionName => _$this._sectionName;
+  set sectionName(String? sectionName) => _$this._sectionName = sectionName;
 
   String? _role;
   String? get role => _$this._role;
@@ -97,8 +97,8 @@ class UserInfoBuilder implements Builder<UserInfo, UserInfoBuilder> {
     if ($v != null) {
       _id = $v.id;
       _fullName = $v.fullName;
-      _sessionId = $v.sessionId;
-      _sessionName = $v.sessionName;
+      _sectionId = $v.sectionId;
+      _sectionName = $v.sectionName;
       _role = $v.role;
       _$v = null;
     }
@@ -124,8 +124,8 @@ class UserInfoBuilder implements Builder<UserInfo, UserInfoBuilder> {
         new _$UserInfo._(
             id: id,
             fullName: fullName,
-            sessionId: sessionId,
-            sessionName: sessionName,
+            sectionId: sectionId,
+            sectionName: sectionName,
             role: role);
     replace(_$result);
     return _$result;

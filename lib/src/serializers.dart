@@ -21,8 +21,10 @@ import 'package:drf_api/src/model/check_up_request.dart';
 import 'package:drf_api/src/model/check_up_response.dart';
 import 'package:drf_api/src/model/controll_check_request.dart';
 import 'package:drf_api/src/model/controll_check_up_response.dart';
+import 'package:drf_api/src/model/create_section.dart';
 import 'package:drf_api/src/model/role.dart';
-import 'package:drf_api/src/model/session.dart';
+import 'package:drf_api/src/model/section.dart';
+import 'package:drf_api/src/model/section_response.dart';
 import 'package:drf_api/src/model/sign_in_model.dart';
 import 'package:drf_api/src/model/signup_model.dart';
 import 'package:drf_api/src/model/user_info.dart';
@@ -37,16 +39,18 @@ part 'serializers.g.dart';
   CheckUpResponse,
   ControllCheckRequest,
   ControllCheckUpResponse,
+  CreateSection,
   ROLE,
-  Session,
+  Section,
+  SectionResponse,
   SignInModel,
   SignupModel,
   UserInfo,
 ])
 Serializers serializers = (_$serializers.toBuilder()
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(Session)]),
-        () => ListBuilder<Session>(),
+        const FullType(BuiltList, [FullType(Section)]),
+        () => ListBuilder<Section>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(CheckUpResponse)]),

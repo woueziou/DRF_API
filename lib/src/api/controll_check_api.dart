@@ -13,7 +13,7 @@ import 'package:drf_api/src/model/car_controll_response.dart';
 import 'package:drf_api/src/model/check_up_request.dart';
 import 'package:drf_api/src/model/check_up_response.dart';
 import 'package:drf_api/src/model/controll_check_request.dart';
-import 'package:drf_api/src/model/session.dart';
+import 'package:drf_api/src/model/section.dart';
 
 class ControllCheckApi {
 
@@ -128,9 +128,9 @@ class ControllCheckApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [BuiltList<Session>] as data
+  /// Returns a [Future] containing a [Response] with a [BuiltList<Section>] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<BuiltList<Session>>> apiControllCheckCarControlledSectionsGet({ 
+  Future<Response<BuiltList<Section>>> apiControllCheckCarControlledSectionsGet({ 
     String? carId,
     String? sessionId,
     int? year,
@@ -175,14 +175,14 @@ class ControllCheckApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<Session> _responseData;
+    BuiltList<Section> _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(Session)]);
+      const _responseType = FullType(BuiltList, [FullType(Section)]);
       _responseData = _serializers.deserialize(
         _response.data!,
         specifiedType: _responseType,
-      ) as BuiltList<Session>;
+      ) as BuiltList<Section>;
 
     } catch (error, stackTrace) {
       throw DioError(
@@ -193,7 +193,7 @@ class ControllCheckApi {
       )..stackTrace = stackTrace;
     }
 
-    return Response<BuiltList<Session>>(
+    return Response<BuiltList<Section>>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,

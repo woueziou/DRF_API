@@ -238,17 +238,17 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Session'
+                  $ref: '#/components/schemas/Section'
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Session'
+                  $ref: '#/components/schemas/Section'
             text/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Session'
+                  $ref: '#/components/schemas/Section'
   /api/ControllCheck/createControllCheckUp:
     post:
       tags:
@@ -277,6 +277,79 @@ paths:
             text/json:
               schema:
                 $ref: '#/components/schemas/CheckUpResponse'
+  /api/Params/getSectionCheckCount:
+    get:
+      tags:
+        - Params
+      parameters:
+        - name: Name
+          in: query
+          schema:
+            type: string
+        - name: Id
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: integer
+                format: int32
+            application/json:
+              schema:
+                type: integer
+                format: int32
+            text/json:
+              schema:
+                type: integer
+                format: int32
+  /api/Params/getPreviousSection:
+    get:
+      tags:
+        - Params
+      parameters:
+        - name: Name
+          in: query
+          schema:
+            type: string
+        - name: Id
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SectionResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SectionResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SectionResponse'
+  /api/Params/createSection:
+    post:
+      tags:
+        - Params
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateSection'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CreateSection'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CreateSection'
+      responses:
+        '200':
+          description: Success
 components:
   schemas:
     AuthResponse:
@@ -418,6 +491,16 @@ components:
           type: string
           nullable: true
       additionalProperties: false
+    CreateSection:
+      type: object
+      properties:
+        name:
+          type: string
+          nullable: true
+        previousSectionId:
+          type: string
+          nullable: true
+      additionalProperties: false
     ROLE:
       enum:
         - 0
@@ -425,7 +508,7 @@ components:
         - 2
       type: integer
       format: int32
-    Session:
+    Section:
       type: object
       properties:
         id:
@@ -434,6 +517,21 @@ components:
         dateAdded:
           type: string
           format: date-time
+        name:
+          type: string
+          nullable: true
+        sectionId:
+          type: string
+          nullable: true
+        previousSection:
+          $ref: '#/components/schemas/Section'
+      additionalProperties: false
+    SectionResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
         name:
           type: string
           nullable: true
@@ -478,10 +576,10 @@ components:
         fullName:
           type: string
           nullable: true
-        sessionId:
+        sectionId:
           type: string
           nullable: true
-        sessionName:
+        sectionName:
           type: string
           nullable: true
         role:

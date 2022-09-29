@@ -6,54 +6,54 @@
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'user_info.g.dart';
+part 'section.g.dart';
 
-/// UserInfo
+/// Section
 ///
 /// Properties:
 /// * [id] 
-/// * [fullName] 
+/// * [dateAdded] 
+/// * [name] 
 /// * [sectionId] 
-/// * [sectionName] 
-/// * [role] 
+/// * [previousSection] 
 @BuiltValue()
-abstract class UserInfo implements Built<UserInfo, UserInfoBuilder> {
+abstract class Section implements Built<Section, SectionBuilder> {
   @BuiltValueField(wireName: r'id')
   String? get id;
 
-  @BuiltValueField(wireName: r'fullName')
-  String? get fullName;
+  @BuiltValueField(wireName: r'dateAdded')
+  DateTime? get dateAdded;
+
+  @BuiltValueField(wireName: r'name')
+  String? get name;
 
   @BuiltValueField(wireName: r'sectionId')
   String? get sectionId;
 
-  @BuiltValueField(wireName: r'sectionName')
-  String? get sectionName;
+  @BuiltValueField(wireName: r'previousSection')
+  Section? get previousSection;
 
-  @BuiltValueField(wireName: r'role')
-  String? get role;
+  Section._();
 
-  UserInfo._();
-
-  factory UserInfo([void updates(UserInfoBuilder b)]) = _$UserInfo;
+  factory Section([void updates(SectionBuilder b)]) = _$Section;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(UserInfoBuilder b) => b;
+  static void _defaults(SectionBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<UserInfo> get serializer => _$UserInfoSerializer();
+  static Serializer<Section> get serializer => _$SectionSerializer();
 }
 
-class _$UserInfoSerializer implements PrimitiveSerializer<UserInfo> {
+class _$SectionSerializer implements PrimitiveSerializer<Section> {
   @override
-  final Iterable<Type> types = const [UserInfo, _$UserInfo];
+  final Iterable<Type> types = const [Section, _$Section];
 
   @override
-  final String wireName = r'UserInfo';
+  final String wireName = r'Section';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    UserInfo object, {
+    Section object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
     if (object.id != null) {
@@ -63,10 +63,17 @@ class _$UserInfoSerializer implements PrimitiveSerializer<UserInfo> {
         specifiedType: const FullType.nullable(String),
       );
     }
-    if (object.fullName != null) {
-      yield r'fullName';
+    if (object.dateAdded != null) {
+      yield r'dateAdded';
       yield serializers.serialize(
-        object.fullName,
+        object.dateAdded,
+        specifiedType: const FullType(DateTime),
+      );
+    }
+    if (object.name != null) {
+      yield r'name';
+      yield serializers.serialize(
+        object.name,
         specifiedType: const FullType.nullable(String),
       );
     }
@@ -77,18 +84,11 @@ class _$UserInfoSerializer implements PrimitiveSerializer<UserInfo> {
         specifiedType: const FullType.nullable(String),
       );
     }
-    if (object.sectionName != null) {
-      yield r'sectionName';
+    if (object.previousSection != null) {
+      yield r'previousSection';
       yield serializers.serialize(
-        object.sectionName,
-        specifiedType: const FullType.nullable(String),
-      );
-    }
-    if (object.role != null) {
-      yield r'role';
-      yield serializers.serialize(
-        object.role,
-        specifiedType: const FullType.nullable(String),
+        object.previousSection,
+        specifiedType: const FullType(Section),
       );
     }
   }
@@ -96,7 +96,7 @@ class _$UserInfoSerializer implements PrimitiveSerializer<UserInfo> {
   @override
   Object serialize(
     Serializers serializers,
-    UserInfo object, {
+    Section object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
@@ -107,7 +107,7 @@ class _$UserInfoSerializer implements PrimitiveSerializer<UserInfo> {
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required UserInfoBuilder result,
+    required SectionBuilder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
@@ -122,13 +122,20 @@ class _$UserInfoSerializer implements PrimitiveSerializer<UserInfo> {
           if (valueDes == null) continue;
           result.id = valueDes;
           break;
-        case r'fullName':
+        case r'dateAdded':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(DateTime),
+          ) as DateTime;
+          result.dateAdded = valueDes;
+          break;
+        case r'name':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType.nullable(String),
           ) as String?;
           if (valueDes == null) continue;
-          result.fullName = valueDes;
+          result.name = valueDes;
           break;
         case r'sectionId':
           final valueDes = serializers.deserialize(
@@ -138,21 +145,12 @@ class _$UserInfoSerializer implements PrimitiveSerializer<UserInfo> {
           if (valueDes == null) continue;
           result.sectionId = valueDes;
           break;
-        case r'sectionName':
+        case r'previousSection':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
-          if (valueDes == null) continue;
-          result.sectionName = valueDes;
-          break;
-        case r'role':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
-          if (valueDes == null) continue;
-          result.role = valueDes;
+            specifiedType: const FullType(Section),
+          ) as Section;
+          result.previousSection.replace(valueDes);
           break;
         default:
           unhandled.add(key);
@@ -163,12 +161,12 @@ class _$UserInfoSerializer implements PrimitiveSerializer<UserInfo> {
   }
 
   @override
-  UserInfo deserialize(
+  Section deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = UserInfoBuilder();
+    final result = SectionBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

@@ -11,8 +11,11 @@ doc/CheckUpResponse.md
 doc/ControllCheckApi.md
 doc/ControllCheckRequest.md
 doc/ControllCheckUpResponse.md
+doc/CreateSection.md
+doc/ParamsApi.md
 doc/ROLE.md
-doc/Session.md
+doc/Section.md
+doc/SectionResponse.md
 doc/SignInModel.md
 doc/SignupModel.md
 doc/UserInfo.md
@@ -21,6 +24,7 @@ lib/src/api.dart
 lib/src/api/auth_api.dart
 lib/src/api/car_api.dart
 lib/src/api/controll_check_api.dart
+lib/src/api/params_api.dart
 lib/src/api_util.dart
 lib/src/auth/api_key_auth.dart
 lib/src/auth/auth.dart
@@ -35,9 +39,11 @@ lib/src/model/check_up_request.dart
 lib/src/model/check_up_response.dart
 lib/src/model/controll_check_request.dart
 lib/src/model/controll_check_up_response.dart
+lib/src/model/create_section.dart
 lib/src/model/date.dart
 lib/src/model/role.dart
-lib/src/model/session.dart
+lib/src/model/section.dart
+lib/src/model/section_response.dart
 lib/src/model/sign_in_model.dart
 lib/src/model/signup_model.dart
 lib/src/model/user_info.dart

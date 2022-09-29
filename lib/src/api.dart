@@ -12,6 +12,7 @@ import 'package:drf_api/src/auth/oauth.dart';
 import 'package:drf_api/src/api/auth_api.dart';
 import 'package:drf_api/src/api/car_api.dart';
 import 'package:drf_api/src/api/controll_check_api.dart';
+import 'package:drf_api/src/api/params_api.dart';
 
 class DrfApi {
   static const String basePath = r'http://localhost';
@@ -83,5 +84,11 @@ class DrfApi {
   /// by doing that all interceptors will not be executed
   ControllCheckApi getControllCheckApi() {
     return ControllCheckApi(dio, serializers);
+  }
+
+  /// Get ParamsApi instance, base route and serializer can be overridden by a given but be careful,
+  /// by doing that all interceptors will not be executed
+  ParamsApi getParamsApi() {
+    return ParamsApi(dio, serializers);
   }
 }
