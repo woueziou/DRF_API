@@ -11,7 +11,6 @@ export 'package:drf_api/src/model/date.dart';
 
 export 'package:drf_api/src/api/auth_api.dart';
 export 'package:drf_api/src/api/controll_check_api.dart';
-export 'package:drf_api/src/api/weather_forecast_api.dart';
 
 export 'package:drf_api/src/model/auth_response.dart';
 export 'package:drf_api/src/model/car_controll_response.dart';
@@ -24,4 +23,3 @@ export 'package:drf_api/src/model/session.dart';
 export 'package:drf_api/src/model/sign_in_model.dart';
 export 'package:drf_api/src/model/signup_model.dart';
 export 'package:drf_api/src/model/user_info.dart';
-export 'package:drf_api/src/model/weather_forecast.dart';

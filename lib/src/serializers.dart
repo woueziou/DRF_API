@@ -25,7 +25,6 @@ import 'package:drf_api/src/model/session.dart';
 import 'package:drf_api/src/model/sign_in_model.dart';
 import 'package:drf_api/src/model/signup_model.dart';
 import 'package:drf_api/src/model/user_info.dart';
-import 'package:drf_api/src/model/weather_forecast.dart';
 
 part 'serializers.g.dart';
 
@@ -41,13 +40,8 @@ part 'serializers.g.dart';
   SignInModel,
   SignupModel,
   UserInfo,
-  WeatherForecast,
 ])
 Serializers serializers = (_$serializers.toBuilder()
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(WeatherForecast)]),
-        () => ListBuilder<WeatherForecast>(),
-      )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(Session)]),
         () => ListBuilder<Session>(),

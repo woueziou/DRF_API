@@ -79,6 +79,32 @@ paths:
             text/json:
               schema:
                 $ref: '#/components/schemas/UserInfo'
+  /api/Auth/renewtoken:
+    get:
+      tags:
+        - Auth
+      parameters:
+        - name: UserId
+          in: query
+          schema:
+            type: string
+        - name: RefreshToken
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
   /api/ControllCheck/makeControllCheck:
     post:
       tags:
@@ -225,30 +251,6 @@ paths:
             text/json:
               schema:
                 $ref: '#/components/schemas/CheckUpResponse'
-  /WeatherForecast:
-    get:
-      tags:
-        - WeatherForecast
-      operationId: GetWeatherForecast
-      responses:
-        '200':
-          description: Success
-          content:
-            text/plain:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/WeatherForecast'
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/WeatherForecast'
-            text/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/WeatherForecast'
 components:
   schemas:
     AuthResponse:
@@ -399,23 +401,6 @@ components:
           type: string
           nullable: true
         role:
-          type: string
-          nullable: true
-      additionalProperties: false
-    WeatherForecast:
-      type: object
-      properties:
-        date:
-          type: string
-          format: date-time
-        temperatureC:
-          type: integer
-          format: int32
-        temperatureF:
-          type: integer
-          format: int32
-          readOnly: true
-        summary:
           type: string
           nullable: true
       additionalProperties: false

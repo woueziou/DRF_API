@@ -9,10 +9,57 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**apiAuthRenewtokenGet**](AuthApi.md#apiauthrenewtokenget) | **GET** /api/Auth/renewtoken | 
 [**apiAuthSigninPost**](AuthApi.md#apiauthsigninpost) | **POST** /api/Auth/signin | 
 [**apiAuthSignupPost**](AuthApi.md#apiauthsignuppost) | **POST** /api/Auth/signup | 
 [**apiAuthWhoamiGet**](AuthApi.md#apiauthwhoamiget) | **GET** /api/Auth/whoami | 
 
+
+# **apiAuthRenewtokenGet**
+> AuthResponse apiAuthRenewtokenGet(userId, refreshToken)
+
+
+
+### Example
+```dart
+import 'package:drf_api/api.dart';
+// TODO Configure HTTP basic authorization: Bearer
+//defaultApiClient.getAuthentication<HttpBasicAuth>('Bearer').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('Bearer').password = 'YOUR_PASSWORD';
+
+final api = DrfApi().getAuthApi();
+final String userId = userId_example; // String | 
+final String refreshToken = refreshToken_example; // String | 
+
+try {
+    final response = api.apiAuthRenewtokenGet(userId, refreshToken);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling AuthApi->apiAuthRenewtokenGet: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **String**|  | [optional] 
+ **refreshToken** | **String**|  | [optional] 
+
+### Return type
+
+[**AuthResponse**](AuthResponse.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **apiAuthSigninPost**
 > AuthResponse apiAuthSigninPost(signInModel)

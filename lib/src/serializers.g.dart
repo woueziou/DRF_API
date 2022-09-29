@@ -18,7 +18,6 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(SignInModel.serializer)
       ..add(SignupModel.serializer)
       ..add(UserInfo.serializer)
-      ..add(WeatherForecast.serializer)
       ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(ControllCheckUpResponse)]),

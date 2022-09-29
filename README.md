@@ -47,13 +47,14 @@ import 'package:drf_api/drf_api.dart';
 
 
 final api = DrfApi().getAuthApi();
-final SignInModel signInModel = ; // SignInModel | 
+final String userId = userId_example; // String | 
+final String refreshToken = refreshToken_example; // String | 
 
 try {
-    final response = await api.apiAuthSigninPost(signInModel);
+    final response = await api.apiAuthRenewtokenGet(userId, refreshToken);
     print(response);
 } catch on DioError (e) {
-    print("Exception when calling AuthApi->apiAuthSigninPost: $e\n");
+    print("Exception when calling AuthApi->apiAuthRenewtokenGet: $e\n");
 }
 
 ```
@@ -64,6 +65,7 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+[*AuthApi*](doc/AuthApi.md) | [**apiAuthRenewtokenGet**](doc/AuthApi.md#apiauthrenewtokenget) | **GET** /api/Auth/renewtoken | 
 [*AuthApi*](doc/AuthApi.md) | [**apiAuthSigninPost**](doc/AuthApi.md#apiauthsigninpost) | **POST** /api/Auth/signin | 
 [*AuthApi*](doc/AuthApi.md) | [**apiAuthSignupPost**](doc/AuthApi.md#apiauthsignuppost) | **POST** /api/Auth/signup | 
 [*AuthApi*](doc/AuthApi.md) | [**apiAuthWhoamiGet**](doc/AuthApi.md#apiauthwhoamiget) | **GET** /api/Auth/whoami | 
@@ -72,7 +74,6 @@ Class | Method | HTTP request | Description
 [*ControllCheckApi*](doc/ControllCheckApi.md) | [**apiControllCheckCreateControllCheckUpPost**](doc/ControllCheckApi.md#apicontrollcheckcreatecontrollcheckuppost) | **POST** /api/ControllCheck/createControllCheckUp | 
 [*ControllCheckApi*](doc/ControllCheckApi.md) | [**apiControllCheckGetCheckUpListBySessionGet**](doc/ControllCheckApi.md#apicontrollcheckgetcheckuplistbysessionget) | **GET** /api/ControllCheck/getCheckUpListBySession | 
 [*ControllCheckApi*](doc/ControllCheckApi.md) | [**apiControllCheckMakeControllCheckPost**](doc/ControllCheckApi.md#apicontrollcheckmakecontrollcheckpost) | **POST** /api/ControllCheck/makeControllCheck | 
-[*WeatherForecastApi*](doc/WeatherForecastApi.md) | [**getWeatherForecast**](doc/WeatherForecastApi.md#getweatherforecast) | **GET** /WeatherForecast | 
 
 
 ## Documentation For Models
@@ -88,7 +89,6 @@ Class | Method | HTTP request | Description
  - [SignInModel](doc/SignInModel.md)
  - [SignupModel](doc/SignupModel.md)
  - [UserInfo](doc/UserInfo.md)
- - [WeatherForecast](doc/WeatherForecast.md)
 
 
 ## Documentation For Authorization
