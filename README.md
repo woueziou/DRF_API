@@ -69,6 +69,7 @@ Class | Method | HTTP request | Description
 [*AuthApi*](doc/AuthApi.md) | [**apiAuthSigninPost**](doc/AuthApi.md#apiauthsigninpost) | **POST** /api/Auth/signin | 
 [*AuthApi*](doc/AuthApi.md) | [**apiAuthSignupPost**](doc/AuthApi.md#apiauthsignuppost) | **POST** /api/Auth/signup | 
 [*AuthApi*](doc/AuthApi.md) | [**apiAuthWhoamiGet**](doc/AuthApi.md#apiauthwhoamiget) | **GET** /api/Auth/whoami | 
+[*CarApi*](doc/CarApi.md) | [**apiCarSearchCarGet**](doc/CarApi.md#apicarsearchcarget) | **GET** /api/Car/searchCar | 
 [*ControllCheckApi*](doc/ControllCheckApi.md) | [**apiControllCheckCarControllChecksBySessionGet**](doc/ControllCheckApi.md#apicontrollcheckcarcontrollchecksbysessionget) | **GET** /api/ControllCheck/CarControllChecksBySession | 
 [*ControllCheckApi*](doc/ControllCheckApi.md) | [**apiControllCheckCarControlledSectionsGet**](doc/ControllCheckApi.md#apicontrollcheckcarcontrolledsectionsget) | **GET** /api/ControllCheck/CarControlledSections | 
 [*ControllCheckApi*](doc/ControllCheckApi.md) | [**apiControllCheckCreateControllCheckUpPost**](doc/ControllCheckApi.md#apicontrollcheckcreatecontrollcheckuppost) | **POST** /api/ControllCheck/createControllCheckUp | 
@@ -79,6 +80,7 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [AuthResponse](doc/AuthResponse.md)
+ - [Car](doc/Car.md)
  - [CarControllResponse](doc/CarControllResponse.md)
  - [CheckUpRequest](doc/CheckUpRequest.md)
  - [CheckUpResponse](doc/CheckUpResponse.md)

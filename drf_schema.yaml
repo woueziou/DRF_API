@@ -105,6 +105,32 @@ paths:
             text/json:
               schema:
                 $ref: '#/components/schemas/AuthResponse'
+  /api/Car/searchCar:
+    get:
+      tags:
+        - Car
+      parameters:
+        - name: ChassisNumber
+          in: query
+          schema:
+            type: string
+        - name: Immatricule
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Car'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Car'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Car'
   /api/ControllCheck/makeControllCheck:
     post:
       tags:
@@ -260,6 +286,64 @@ components:
           type: string
           nullable: true
         refreshToken:
+          type: string
+          nullable: true
+      additionalProperties: false
+    Car:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
+        dateAdded:
+          type: string
+          format: date-time
+        idVehicule:
+          type: string
+          nullable: true
+        numChassis:
+          type: string
+          nullable: true
+        nomUsager:
+          type: string
+          nullable: true
+        prenomUsager:
+          type: string
+          nullable: true
+        telephoneUsager:
+          type: string
+          nullable: true
+        adresseUsager:
+          type: string
+          nullable: true
+        genre:
+          type: string
+          nullable: true
+        ptac:
+          type: string
+          nullable: true
+        puissanceV:
+          type: string
+          nullable: true
+        nombePlace:
+          type: string
+          nullable: true
+        marqueEgin:
+          type: string
+          nullable: true
+        typeEngin:
+          type: string
+          nullable: true
+        assurance:
+          type: string
+          nullable: true
+        numPoliceAssurance:
+          type: string
+          nullable: true
+        usage:
+          type: string
+          nullable: true
+        dateExpirationVisite:
           type: string
           nullable: true
       additionalProperties: false

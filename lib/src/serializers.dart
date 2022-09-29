@@ -15,6 +15,7 @@ import 'package:drf_api/src/date_serializer.dart';
 import 'package:drf_api/src/model/date.dart';
 
 import 'package:drf_api/src/model/auth_response.dart';
+import 'package:drf_api/src/model/car.dart';
 import 'package:drf_api/src/model/car_controll_response.dart';
 import 'package:drf_api/src/model/check_up_request.dart';
 import 'package:drf_api/src/model/check_up_response.dart';
@@ -30,6 +31,7 @@ part 'serializers.g.dart';
 
 @SerializersFor([
   AuthResponse,
+  Car,
   CarControllResponse,
   CheckUpRequest,
   CheckUpResponse,

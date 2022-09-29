@@ -10,9 +10,11 @@ export 'package:drf_api/src/serializers.dart';
 export 'package:drf_api/src/model/date.dart';
 
 export 'package:drf_api/src/api/auth_api.dart';
+export 'package:drf_api/src/api/car_api.dart';
 export 'package:drf_api/src/api/controll_check_api.dart';
 
 export 'package:drf_api/src/model/auth_response.dart';
+export 'package:drf_api/src/model/car.dart';
 export 'package:drf_api/src/model/car_controll_response.dart';
 export 'package:drf_api/src/model/check_up_request.dart';
 export 'package:drf_api/src/model/check_up_response.dart';

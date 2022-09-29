@@ -10,6 +10,7 @@ import 'package:drf_api/src/auth/basic_auth.dart';
 import 'package:drf_api/src/auth/bearer_auth.dart';
 import 'package:drf_api/src/auth/oauth.dart';
 import 'package:drf_api/src/api/auth_api.dart';
+import 'package:drf_api/src/api/car_api.dart';
 import 'package:drf_api/src/api/controll_check_api.dart';
 
 class DrfApi {
@@ -70,6 +71,12 @@ class DrfApi {
   /// by doing that all interceptors will not be executed
   AuthApi getAuthApi() {
     return AuthApi(dio, serializers);
+  }
+
+  /// Get CarApi instance, base route and serializer can be overridden by a given but be careful,
+  /// by doing that all interceptors will not be executed
+  CarApi getCarApi() {
+    return CarApi(dio, serializers);
   }
 
   /// Get ControllCheckApi instance, base route and serializer can be overridden by a given but be careful,

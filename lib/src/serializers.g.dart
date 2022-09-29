@@ -8,6 +8,7 @@ part of 'serializers.dart';
 
 Serializers _$serializers = (new Serializers().toBuilder()
       ..add(AuthResponse.serializer)
+      ..add(Car.serializer)
       ..add(CarControllResponse.serializer)
       ..add(CheckUpRequest.serializer)
       ..add(CheckUpResponse.serializer)

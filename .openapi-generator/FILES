@@ -3,6 +3,8 @@ README.md
 analysis_options.yaml
 doc/AuthApi.md
 doc/AuthResponse.md
+doc/Car.md
+doc/CarApi.md
 doc/CarControllResponse.md
 doc/CheckUpRequest.md
 doc/CheckUpResponse.md
@@ -17,6 +19,7 @@ doc/UserInfo.md
 lib/drf_api.dart
 lib/src/api.dart
 lib/src/api/auth_api.dart
+lib/src/api/car_api.dart
 lib/src/api/controll_check_api.dart
 lib/src/api_util.dart
 lib/src/auth/api_key_auth.dart
@@ -26,6 +29,7 @@ lib/src/auth/bearer_auth.dart
 lib/src/auth/oauth.dart
 lib/src/date_serializer.dart
 lib/src/model/auth_response.dart
+lib/src/model/car.dart
 lib/src/model/car_controll_response.dart
 lib/src/model/check_up_request.dart
 lib/src/model/check_up_response.dart
