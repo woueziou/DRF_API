@@ -8,8 +8,8 @@ import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
 import 'package:drf_api/src/api_util.dart';
-import 'package:drf_api/src/model/create_section.dart';
-import 'package:drf_api/src/model/section_response.dart';
+import 'package:drf_api/src/model/new_section.dart';
+import 'package:drf_api/src/model/param_section_response.dart';
 
 class ParamsApi {
 
@@ -23,7 +23,7 @@ class ParamsApi {
   /// 
   ///
   /// Parameters:
-  /// * [createSection] 
+  /// * [newSection] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -34,7 +34,7 @@ class ParamsApi {
   /// Returns a [Future]
   /// Throws [DioError] if API call or serialization fails
   Future<Response<void>> apiParamsCreateSectionPost({ 
-    CreateSection? createSection,
+    NewSection? newSection,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -65,8 +65,8 @@ class ParamsApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(CreateSection);
-      _bodyData = createSection == null ? null : _serializers.serialize(createSection, specifiedType: _type);
+      const _type = FullType(NewSection);
+      _bodyData = newSection == null ? null : _serializers.serialize(newSection, specifiedType: _type);
 
     } catch(error, stackTrace) {
       throw DioError(
@@ -104,9 +104,9 @@ class ParamsApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [SectionResponse] as data
+  /// Returns a [Future] containing a [Response] with a [ParamSectionResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<SectionResponse>> apiParamsGetPreviousSectionGet({ 
+  Future<Response<ParamSectionResponse>> apiParamsGetPreviousSectionGet({ 
     String? name,
     String? id,
     CancelToken? cancelToken,
@@ -149,14 +149,14 @@ class ParamsApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    SectionResponse _responseData;
+    ParamSectionResponse _responseData;
 
     try {
-      const _responseType = FullType(SectionResponse);
+      const _responseType = FullType(ParamSectionResponse);
       _responseData = _serializers.deserialize(
         _response.data!,
         specifiedType: _responseType,
-      ) as SectionResponse;
+      ) as ParamSectionResponse;
 
     } catch (error, stackTrace) {
       throw DioError(
@@ -167,7 +167,7 @@ class ParamsApi {
       )..stackTrace = stackTrace;
     }
 
-    return Response<SectionResponse>(
+    return Response<ParamSectionResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,

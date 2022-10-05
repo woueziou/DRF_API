@@ -16,15 +16,17 @@ import 'package:drf_api/src/model/date.dart';
 
 import 'package:drf_api/src/model/auth_response.dart';
 import 'package:drf_api/src/model/car.dart';
-import 'package:drf_api/src/model/car_controll_response.dart';
-import 'package:drf_api/src/model/check_up_request.dart';
-import 'package:drf_api/src/model/check_up_response.dart';
-import 'package:drf_api/src/model/controll_check_request.dart';
-import 'package:drf_api/src/model/controll_check_up_response.dart';
-import 'package:drf_api/src/model/create_section.dart';
+import 'package:drf_api/src/model/car_response.dart';
+import 'package:drf_api/src/model/control_section.dart';
+import 'package:drf_api/src/model/control_state.dart';
+import 'package:drf_api/src/model/create_check_up_request.dart';
+import 'package:drf_api/src/model/create_control_request.dart';
+import 'package:drf_api/src/model/enum_control_state.dart';
+import 'package:drf_api/src/model/handle_section.dart';
+import 'package:drf_api/src/model/new_section.dart';
+import 'package:drf_api/src/model/param_section_response.dart';
 import 'package:drf_api/src/model/role.dart';
-import 'package:drf_api/src/model/section.dart';
-import 'package:drf_api/src/model/section_response.dart';
+import 'package:drf_api/src/model/section_check_ups.dart';
 import 'package:drf_api/src/model/sign_in_model.dart';
 import 'package:drf_api/src/model/signup_model.dart';
 import 'package:drf_api/src/model/user_info.dart';
@@ -34,27 +36,29 @@ part 'serializers.g.dart';
 @SerializersFor([
   AuthResponse,
   Car,
-  CarControllResponse,
-  CheckUpRequest,
-  CheckUpResponse,
-  ControllCheckRequest,
-  ControllCheckUpResponse,
-  CreateSection,
+  CarResponse,
+  ControlSection,
+  ControlState,
+  CreateCheckUpRequest,
+  CreateControlRequest,
+  EnumControlState,
+  HandleSection,
+  NewSection,
+  ParamSectionResponse,
   ROLE,
-  Section,
-  SectionResponse,
+  SectionCheckUps,
   SignInModel,
   SignupModel,
   UserInfo,
 ])
 Serializers serializers = (_$serializers.toBuilder()
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(Section)]),
-        () => ListBuilder<Section>(),
+        const FullType(BuiltList, [FullType(ControlSection)]),
+        () => ListBuilder<ControlSection>(),
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(CheckUpResponse)]),
-        () => ListBuilder<CheckUpResponse>(),
+        const FullType(BuiltList, [FullType(ControlState)]),
+        () => ListBuilder<ControlState>(),
       )
       ..add(const OneOfSerializer())
       ..add(const AnyOfSerializer())

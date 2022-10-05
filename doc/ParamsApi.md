@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 
 # **apiParamsCreateSectionPost**
-> apiParamsCreateSectionPost(createSection)
+> apiParamsCreateSectionPost(newSection)
 
 
 
@@ -27,10 +27,10 @@ import 'package:drf_api/api.dart';
 //defaultApiClient.getAuthentication<HttpBasicAuth>('Bearer').password = 'YOUR_PASSWORD';
 
 final api = DrfApi().getParamsApi();
-final CreateSection createSection = ; // CreateSection | 
+final NewSection newSection = ; // NewSection | 
 
 try {
-    api.apiParamsCreateSectionPost(createSection);
+    api.apiParamsCreateSectionPost(newSection);
 } catch on DioError (e) {
     print('Exception when calling ParamsApi->apiParamsCreateSectionPost: $e\n');
 }
@@ -40,7 +40,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createSection** | [**CreateSection**](CreateSection.md)|  | [optional] 
+ **newSection** | [**NewSection**](NewSection.md)|  | [optional] 
 
 ### Return type
 
@@ -58,7 +58,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **apiParamsGetPreviousSectionGet**
-> SectionResponse apiParamsGetPreviousSectionGet(name, id)
+> ParamSectionResponse apiParamsGetPreviousSectionGet(name, id)
 
 
 
@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SectionResponse**](SectionResponse.md)
+[**ParamSectionResponse**](ParamSectionResponse.md)
 
 ### Authorization
 

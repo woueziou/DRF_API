@@ -9,63 +9,16 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**apiControllCheckCarControllChecksBySessionGet**](ControllCheckApi.md#apicontrollcheckcarcontrollchecksbysessionget) | **GET** /api/ControllCheck/CarControllChecksBySession | 
-[**apiControllCheckCarControlledSectionsGet**](ControllCheckApi.md#apicontrollcheckcarcontrolledsectionsget) | **GET** /api/ControllCheck/CarControlledSections | 
-[**apiControllCheckCreateControllCheckUpPost**](ControllCheckApi.md#apicontrollcheckcreatecontrollcheckuppost) | **POST** /api/ControllCheck/createControllCheckUp | 
-[**apiControllCheckGetCheckUpListBySessionGet**](ControllCheckApi.md#apicontrollcheckgetcheckuplistbysessionget) | **GET** /api/ControllCheck/getCheckUpListBySession | 
-[**apiControllCheckMakeControllCheckPost**](ControllCheckApi.md#apicontrollcheckmakecontrollcheckpost) | **POST** /api/ControllCheck/makeControllCheck | 
+[**apiControllCheckCreateOrGetControlByCarIdOnlyPost**](ControllCheckApi.md#apicontrollcheckcreateorgetcontrolbycaridonlypost) | **POST** /api/ControllCheck/CreateOrGetControlByCarIdOnly | 
+[**apiControllCheckGetControlListByStateGet**](ControllCheckApi.md#apicontrollcheckgetcontrollistbystateget) | **GET** /api/ControllCheck/GetControlListByState | 
+[**apiControllCheckGetControlSectionsSummaryGet**](ControllCheckApi.md#apicontrollcheckgetcontrolsectionssummaryget) | **GET** /api/ControllCheck/GetControlSectionsSummary | 
+[**apiControllCheckGetControlStateByIdAndYearGet**](ControllCheckApi.md#apicontrollcheckgetcontrolstatebyidandyearget) | **GET** /api/ControllCheck/GetControlStateByIdAndYear | 
+[**apiControllCheckMakeCheckupPost**](ControllCheckApi.md#apicontrollcheckmakecheckuppost) | **POST** /api/ControllCheck/MakeCheckup | 
+[**apiControllCheckValidateOrCancelSectionPut**](ControllCheckApi.md#apicontrollcheckvalidateorcancelsectionput) | **PUT** /api/ControllCheck/ValidateOrCancelSection | 
 
 
-# **apiControllCheckCarControllChecksBySessionGet**
-> CarControllResponse apiControllCheckCarControllChecksBySessionGet(carId, sessionId, year)
-
-
-
-### Example
-```dart
-import 'package:drf_api/api.dart';
-// TODO Configure HTTP basic authorization: Bearer
-//defaultApiClient.getAuthentication<HttpBasicAuth>('Bearer').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('Bearer').password = 'YOUR_PASSWORD';
-
-final api = DrfApi().getControllCheckApi();
-final String carId = carId_example; // String | 
-final String sessionId = sessionId_example; // String | 
-final int year = 56; // int | 
-
-try {
-    final response = api.apiControllCheckCarControllChecksBySessionGet(carId, sessionId, year);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling ControllCheckApi->apiControllCheckCarControllChecksBySessionGet: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **carId** | **String**|  | [optional] 
- **sessionId** | **String**|  | [optional] 
- **year** | **int**|  | [optional] 
-
-### Return type
-
-[**CarControllResponse**](CarControllResponse.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **apiControllCheckCarControlledSectionsGet**
-> BuiltList<Section> apiControllCheckCarControlledSectionsGet(carId, sessionId, year)
+# **apiControllCheckCreateOrGetControlByCarIdOnlyPost**
+> ControlState apiControllCheckCreateOrGetControlByCarIdOnlyPost(createControlRequest)
 
 
 
@@ -77,15 +30,13 @@ import 'package:drf_api/api.dart';
 //defaultApiClient.getAuthentication<HttpBasicAuth>('Bearer').password = 'YOUR_PASSWORD';
 
 final api = DrfApi().getControllCheckApi();
-final String carId = carId_example; // String | 
-final String sessionId = sessionId_example; // String | 
-final int year = 56; // int | 
+final CreateControlRequest createControlRequest = ; // CreateControlRequest | 
 
 try {
-    final response = api.apiControllCheckCarControlledSectionsGet(carId, sessionId, year);
+    final response = api.apiControllCheckCreateOrGetControlByCarIdOnlyPost(createControlRequest);
     print(response);
 } catch on DioError (e) {
-    print('Exception when calling ControllCheckApi->apiControllCheckCarControlledSectionsGet: $e\n');
+    print('Exception when calling ControllCheckApi->apiControllCheckCreateOrGetControlByCarIdOnlyPost: $e\n');
 }
 ```
 
@@ -93,57 +44,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **carId** | **String**|  | [optional] 
- **sessionId** | **String**|  | [optional] 
- **year** | **int**|  | [optional] 
+ **createControlRequest** | [**CreateControlRequest**](CreateControlRequest.md)|  | [optional] 
 
 ### Return type
 
-[**BuiltList&lt;Section&gt;**](Section.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **apiControllCheckCreateControllCheckUpPost**
-> CheckUpResponse apiControllCheckCreateControllCheckUpPost(checkUpRequest)
-
-
-
-### Example
-```dart
-import 'package:drf_api/api.dart';
-// TODO Configure HTTP basic authorization: Bearer
-//defaultApiClient.getAuthentication<HttpBasicAuth>('Bearer').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('Bearer').password = 'YOUR_PASSWORD';
-
-final api = DrfApi().getControllCheckApi();
-final CheckUpRequest checkUpRequest = ; // CheckUpRequest | 
-
-try {
-    final response = api.apiControllCheckCreateControllCheckUpPost(checkUpRequest);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling ControllCheckApi->apiControllCheckCreateControllCheckUpPost: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **checkUpRequest** | [**CheckUpRequest**](CheckUpRequest.md)|  | [optional] 
-
-### Return type
-
-[**CheckUpResponse**](CheckUpResponse.md)
+[**ControlState**](ControlState.md)
 
 ### Authorization
 
@@ -156,8 +61,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **apiControllCheckGetCheckUpListBySessionGet**
-> BuiltList<CheckUpResponse> apiControllCheckGetCheckUpListBySessionGet(sessionId, region)
+# **apiControllCheckGetControlListByStateGet**
+> BuiltList<ControlState> apiControllCheckGetControlListByStateGet(request)
 
 
 
@@ -169,14 +74,13 @@ import 'package:drf_api/api.dart';
 //defaultApiClient.getAuthentication<HttpBasicAuth>('Bearer').password = 'YOUR_PASSWORD';
 
 final api = DrfApi().getControllCheckApi();
-final String sessionId = sessionId_example; // String | 
-final String region = region_example; // String | 
+final EnumControlState request = ; // EnumControlState | 
 
 try {
-    final response = api.apiControllCheckGetCheckUpListBySessionGet(sessionId, region);
+    final response = api.apiControllCheckGetControlListByStateGet(request);
     print(response);
 } catch on DioError (e) {
-    print('Exception when calling ControllCheckApi->apiControllCheckGetCheckUpListBySessionGet: $e\n');
+    print('Exception when calling ControllCheckApi->apiControllCheckGetControlListByStateGet: $e\n');
 }
 ```
 
@@ -184,12 +88,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sessionId** | **String**|  | [optional] 
- **region** | **String**|  | [optional] 
+ **request** | [**EnumControlState**](.md)|  | [optional] 
 
 ### Return type
 
-[**BuiltList&lt;CheckUpResponse&gt;**](CheckUpResponse.md)
+[**BuiltList&lt;ControlState&gt;**](ControlState.md)
 
 ### Authorization
 
@@ -202,8 +105,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **apiControllCheckMakeControllCheckPost**
-> apiControllCheckMakeControllCheckPost(controllCheckRequest)
+# **apiControllCheckGetControlSectionsSummaryGet**
+> BuiltList<ControlSection> apiControllCheckGetControlSectionsSummaryGet(carId, year)
 
 
 
@@ -215,12 +118,14 @@ import 'package:drf_api/api.dart';
 //defaultApiClient.getAuthentication<HttpBasicAuth>('Bearer').password = 'YOUR_PASSWORD';
 
 final api = DrfApi().getControllCheckApi();
-final ControllCheckRequest controllCheckRequest = ; // ControllCheckRequest | 
+final String carId = carId_example; // String | 
+final int year = 56; // int | 
 
 try {
-    api.apiControllCheckMakeControllCheckPost(controllCheckRequest);
+    final response = api.apiControllCheckGetControlSectionsSummaryGet(carId, year);
+    print(response);
 } catch on DioError (e) {
-    print('Exception when calling ControllCheckApi->apiControllCheckMakeControllCheckPost: $e\n');
+    print('Exception when calling ControllCheckApi->apiControllCheckGetControlSectionsSummaryGet: $e\n');
 }
 ```
 
@@ -228,7 +133,97 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **controllCheckRequest** | [**ControllCheckRequest**](ControllCheckRequest.md)|  | [optional] 
+ **carId** | **String**|  | [optional] 
+ **year** | **int**|  | [optional] 
+
+### Return type
+
+[**BuiltList&lt;ControlSection&gt;**](ControlSection.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **apiControllCheckGetControlStateByIdAndYearGet**
+> ControlState apiControllCheckGetControlStateByIdAndYearGet(id, year)
+
+
+
+### Example
+```dart
+import 'package:drf_api/api.dart';
+// TODO Configure HTTP basic authorization: Bearer
+//defaultApiClient.getAuthentication<HttpBasicAuth>('Bearer').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('Bearer').password = 'YOUR_PASSWORD';
+
+final api = DrfApi().getControllCheckApi();
+final String id = id_example; // String | 
+final int year = 56; // int | 
+
+try {
+    final response = api.apiControllCheckGetControlStateByIdAndYearGet(id, year);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling ControllCheckApi->apiControllCheckGetControlStateByIdAndYearGet: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**|  | [optional] 
+ **year** | **int**|  | [optional] 
+
+### Return type
+
+[**ControlState**](ControlState.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **apiControllCheckMakeCheckupPost**
+> apiControllCheckMakeCheckupPost(createCheckUpRequest)
+
+
+
+### Example
+```dart
+import 'package:drf_api/api.dart';
+// TODO Configure HTTP basic authorization: Bearer
+//defaultApiClient.getAuthentication<HttpBasicAuth>('Bearer').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('Bearer').password = 'YOUR_PASSWORD';
+
+final api = DrfApi().getControllCheckApi();
+final CreateCheckUpRequest createCheckUpRequest = ; // CreateCheckUpRequest | 
+
+try {
+    api.apiControllCheckMakeCheckupPost(createCheckUpRequest);
+} catch on DioError (e) {
+    print('Exception when calling ControllCheckApi->apiControllCheckMakeCheckupPost: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **createCheckUpRequest** | [**CreateCheckUpRequest**](CreateCheckUpRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -242,6 +237,50 @@ void (empty response body)
 
  - **Content-Type**: application/json, text/json, application/*+json
  - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **apiControllCheckValidateOrCancelSectionPut**
+> BuiltList<ControlState> apiControllCheckValidateOrCancelSectionPut(handleSection)
+
+
+
+### Example
+```dart
+import 'package:drf_api/api.dart';
+// TODO Configure HTTP basic authorization: Bearer
+//defaultApiClient.getAuthentication<HttpBasicAuth>('Bearer').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('Bearer').password = 'YOUR_PASSWORD';
+
+final api = DrfApi().getControllCheckApi();
+final HandleSection handleSection = ; // HandleSection | 
+
+try {
+    final response = api.apiControllCheckValidateOrCancelSectionPut(handleSection);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling ControllCheckApi->apiControllCheckValidateOrCancelSectionPut: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **handleSection** | [**HandleSection**](HandleSection.md)|  | [optional] 
+
+### Return type
+
+[**BuiltList&lt;ControlState&gt;**](ControlState.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

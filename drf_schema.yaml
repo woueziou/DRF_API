@@ -131,7 +131,7 @@ paths:
             text/json:
               schema:
                 $ref: '#/components/schemas/Car'
-  /api/ControllCheck/makeControllCheck:
+  /api/ControllCheck/MakeCheckup:
     post:
       tags:
         - ControllCheck
@@ -139,89 +139,50 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ControllCheckRequest'
+              $ref: '#/components/schemas/CreateCheckUpRequest'
           text/json:
             schema:
-              $ref: '#/components/schemas/ControllCheckRequest'
+              $ref: '#/components/schemas/CreateCheckUpRequest'
           application/*+json:
             schema:
-              $ref: '#/components/schemas/ControllCheckRequest'
+              $ref: '#/components/schemas/CreateCheckUpRequest'
       responses:
         '200':
           description: Success
-  /api/ControllCheck/getCheckUpListBySession:
-    get:
+  /api/ControllCheck/CreateOrGetControlByCarIdOnly:
+    post:
       tags:
         - ControllCheck
-      parameters:
-        - name: SessionId
-          in: query
-          schema:
-            type: string
-        - name: Region
-          in: query
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Success
-          content:
-            text/plain:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/CheckUpResponse'
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/CheckUpResponse'
-            text/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/CheckUpResponse'
-  /api/ControllCheck/CarControllChecksBySession:
-    get:
-      tags:
-        - ControllCheck
-      parameters:
-        - name: CarId
-          in: query
-          schema:
-            type: string
-        - name: SessionId
-          in: query
-          schema:
-            type: string
-        - name: Year
-          in: query
-          schema:
-            type: integer
-            format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateControlRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CreateControlRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CreateControlRequest'
       responses:
         '200':
           description: Success
           content:
             text/plain:
               schema:
-                $ref: '#/components/schemas/CarControllResponse'
+                $ref: '#/components/schemas/ControlState'
             application/json:
               schema:
-                $ref: '#/components/schemas/CarControllResponse'
+                $ref: '#/components/schemas/ControlState'
             text/json:
               schema:
-                $ref: '#/components/schemas/CarControllResponse'
-  /api/ControllCheck/CarControlledSections:
+                $ref: '#/components/schemas/ControlState'
+  /api/ControllCheck/GetControlSectionsSummary:
     get:
       tags:
         - ControllCheck
       parameters:
         - name: CarId
-          in: query
-          schema:
-            type: string
-        - name: SessionId
           in: query
           schema:
             type: string
@@ -238,45 +199,106 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Section'
+                  $ref: '#/components/schemas/ControlSection'
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Section'
+                  $ref: '#/components/schemas/ControlSection'
             text/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Section'
-  /api/ControllCheck/createControllCheckUp:
-    post:
+                  $ref: '#/components/schemas/ControlSection'
+  /api/ControllCheck/GetControlStateByIdAndYear:
+    get:
       tags:
         - ControllCheck
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CheckUpRequest'
-          text/json:
-            schema:
-              $ref: '#/components/schemas/CheckUpRequest'
-          application/*+json:
-            schema:
-              $ref: '#/components/schemas/CheckUpRequest'
+      parameters:
+        - name: Id
+          in: query
+          schema:
+            type: string
+        - name: year
+          in: query
+          schema:
+            type: integer
+            format: int32
       responses:
         '200':
           description: Success
           content:
             text/plain:
               schema:
-                $ref: '#/components/schemas/CheckUpResponse'
+                $ref: '#/components/schemas/ControlState'
             application/json:
               schema:
-                $ref: '#/components/schemas/CheckUpResponse'
+                $ref: '#/components/schemas/ControlState'
             text/json:
               schema:
-                $ref: '#/components/schemas/CheckUpResponse'
+                $ref: '#/components/schemas/ControlState'
+  /api/ControllCheck/GetControlListByState:
+    get:
+      tags:
+        - ControllCheck
+      parameters:
+        - name: request
+          in: query
+          schema:
+            $ref: '#/components/schemas/EnumControlState'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ControlState'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ControlState'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ControlState'
+  /api/ControllCheck/ValidateOrCancelSection:
+    put:
+      tags:
+        - ControllCheck
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HandleSection'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/HandleSection'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/HandleSection'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ControlState'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ControlState'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ControlState'
   /api/Params/getSectionCheckCount:
     get:
       tags:
@@ -325,13 +347,13 @@ paths:
           content:
             text/plain:
               schema:
-                $ref: '#/components/schemas/SectionResponse'
+                $ref: '#/components/schemas/ParamSectionResponse'
             application/json:
               schema:
-                $ref: '#/components/schemas/SectionResponse'
+                $ref: '#/components/schemas/ParamSectionResponse'
             text/json:
               schema:
-                $ref: '#/components/schemas/SectionResponse'
+                $ref: '#/components/schemas/ParamSectionResponse'
   /api/Params/createSection:
     post:
       tags:
@@ -340,13 +362,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateSection'
+              $ref: '#/components/schemas/NewSection'
           text/json:
             schema:
-              $ref: '#/components/schemas/CreateSection'
+              $ref: '#/components/schemas/NewSection'
           application/*+json:
             schema:
-              $ref: '#/components/schemas/CreateSection'
+              $ref: '#/components/schemas/NewSection'
       responses:
         '200':
           description: Success
@@ -420,37 +442,59 @@ components:
           type: string
           nullable: true
       additionalProperties: false
-    CarControllResponse:
+    CarResponse:
       type: object
       properties:
-        carName:
+        idVehicule:
           type: string
           nullable: true
-        sessionName:
+        numChassis:
           type: string
           nullable: true
-        checkUps:
-          type: array
-          items:
-            $ref: '#/components/schemas/ControllCheckUpResponse'
+        nomUsager:
+          type: string
+          nullable: true
+        prenomUsager:
+          type: string
+          nullable: true
+        telephoneUsager:
+          type: string
+          nullable: true
+        adresseUsager:
+          type: string
+          nullable: true
+        genre:
+          type: string
+          nullable: true
+        ptac:
+          type: string
+          nullable: true
+        puissanceV:
+          type: string
+          nullable: true
+        nombePlace:
+          type: string
+          nullable: true
+        marqueEgin:
+          type: string
+          nullable: true
+        typeEngin:
+          type: string
+          nullable: true
+        assurance:
+          type: string
+          nullable: true
+        numPoliceAssurance:
+          type: string
+          nullable: true
+        usage:
+          type: string
+          nullable: true
+        dateExpirationVisite:
+          type: string
           nullable: true
       additionalProperties: false
-    CheckUpRequest:
-      type: object
-      properties:
-        name:
-          type: string
-          nullable: true
-        sessionId:
-          type: string
-          nullable: true
-        availableState:
-          type: array
-          items:
-            type: string
-          nullable: true
-      additionalProperties: false
-    CheckUpResponse:
+    ControlSection:
       type: object
       properties:
         id:
@@ -459,45 +503,93 @@ components:
         name:
           type: string
           nullable: true
-        availableState:
+        isValidated:
+          type: boolean
+        checks:
           type: array
           items:
-            type: string
+            $ref: '#/components/schemas/SectionCheckUps'
           nullable: true
       additionalProperties: false
-    ControllCheckRequest:
+    ControlState:
       type: object
       properties:
-        checkId:
+        id:
+          type: string
+          nullable: true
+        car:
+          $ref: '#/components/schemas/CarResponse'
+        state:
+          $ref: '#/components/schemas/EnumControlState'
+        addedBy:
+          type: string
+          nullable: true
+      additionalProperties: false
+    CreateCheckUpRequest:
+      type: object
+      properties:
+        controlId:
+          type: string
+          nullable: true
+        sectionId:
+          type: string
+          nullable: true
+        checkName:
           type: string
           nullable: true
         checkState:
           type: string
           nullable: true
+      additionalProperties: false
+    CreateControlRequest:
+      type: object
+      properties:
         carId:
           type: string
           nullable: true
+        year:
+          type: integer
+          format: int32
       additionalProperties: false
-    ControllCheckUpResponse:
+    EnumControlState:
+      enum:
+        - 0
+        - 1
+        - 2
+      type: integer
+      format: int32
+    HandleSection:
       type: object
       properties:
-        checkUpName:
+        sectionId:
           type: string
           nullable: true
-        checkUpState:
+        controlId:
           type: string
           nullable: true
-        dateDone:
-          type: string
-          nullable: true
+        state:
+          type: boolean
+        year:
+          type: integer
+          format: int32
       additionalProperties: false
-    CreateSection:
+    NewSection:
       type: object
       properties:
         name:
           type: string
           nullable: true
         previousSectionId:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ParamSectionResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
+        name:
           type: string
           nullable: true
       additionalProperties: false
@@ -508,31 +600,13 @@ components:
         - 2
       type: integer
       format: int32
-    Section:
+    SectionCheckUps:
       type: object
       properties:
-        id:
-          type: string
-          nullable: true
-        dateAdded:
-          type: string
-          format: date-time
         name:
           type: string
           nullable: true
-        sectionId:
-          type: string
-          nullable: true
-        previousSection:
-          $ref: '#/components/schemas/Section'
-      additionalProperties: false
-    SectionResponse:
-      type: object
-      properties:
-        id:
-          type: string
-          nullable: true
-        name:
+        checkState:
           type: string
           nullable: true
       additionalProperties: false

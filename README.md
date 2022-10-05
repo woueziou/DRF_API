@@ -70,11 +70,12 @@ Class | Method | HTTP request | Description
 [*AuthApi*](doc/AuthApi.md) | [**apiAuthSignupPost**](doc/AuthApi.md#apiauthsignuppost) | **POST** /api/Auth/signup | 
 [*AuthApi*](doc/AuthApi.md) | [**apiAuthWhoamiGet**](doc/AuthApi.md#apiauthwhoamiget) | **GET** /api/Auth/whoami | 
 [*CarApi*](doc/CarApi.md) | [**apiCarSearchCarGet**](doc/CarApi.md#apicarsearchcarget) | **GET** /api/Car/searchCar | 
-[*ControllCheckApi*](doc/ControllCheckApi.md) | [**apiControllCheckCarControllChecksBySessionGet**](doc/ControllCheckApi.md#apicontrollcheckcarcontrollchecksbysessionget) | **GET** /api/ControllCheck/CarControllChecksBySession | 
-[*ControllCheckApi*](doc/ControllCheckApi.md) | [**apiControllCheckCarControlledSectionsGet**](doc/ControllCheckApi.md#apicontrollcheckcarcontrolledsectionsget) | **GET** /api/ControllCheck/CarControlledSections | 
-[*ControllCheckApi*](doc/ControllCheckApi.md) | [**apiControllCheckCreateControllCheckUpPost**](doc/ControllCheckApi.md#apicontrollcheckcreatecontrollcheckuppost) | **POST** /api/ControllCheck/createControllCheckUp | 
-[*ControllCheckApi*](doc/ControllCheckApi.md) | [**apiControllCheckGetCheckUpListBySessionGet**](doc/ControllCheckApi.md#apicontrollcheckgetcheckuplistbysessionget) | **GET** /api/ControllCheck/getCheckUpListBySession | 
-[*ControllCheckApi*](doc/ControllCheckApi.md) | [**apiControllCheckMakeControllCheckPost**](doc/ControllCheckApi.md#apicontrollcheckmakecontrollcheckpost) | **POST** /api/ControllCheck/makeControllCheck | 
+[*ControllCheckApi*](doc/ControllCheckApi.md) | [**apiControllCheckCreateOrGetControlByCarIdOnlyPost**](doc/ControllCheckApi.md#apicontrollcheckcreateorgetcontrolbycaridonlypost) | **POST** /api/ControllCheck/CreateOrGetControlByCarIdOnly | 
+[*ControllCheckApi*](doc/ControllCheckApi.md) | [**apiControllCheckGetControlListByStateGet**](doc/ControllCheckApi.md#apicontrollcheckgetcontrollistbystateget) | **GET** /api/ControllCheck/GetControlListByState | 
+[*ControllCheckApi*](doc/ControllCheckApi.md) | [**apiControllCheckGetControlSectionsSummaryGet**](doc/ControllCheckApi.md#apicontrollcheckgetcontrolsectionssummaryget) | **GET** /api/ControllCheck/GetControlSectionsSummary | 
+[*ControllCheckApi*](doc/ControllCheckApi.md) | [**apiControllCheckGetControlStateByIdAndYearGet**](doc/ControllCheckApi.md#apicontrollcheckgetcontrolstatebyidandyearget) | **GET** /api/ControllCheck/GetControlStateByIdAndYear | 
+[*ControllCheckApi*](doc/ControllCheckApi.md) | [**apiControllCheckMakeCheckupPost**](doc/ControllCheckApi.md#apicontrollcheckmakecheckuppost) | **POST** /api/ControllCheck/MakeCheckup | 
+[*ControllCheckApi*](doc/ControllCheckApi.md) | [**apiControllCheckValidateOrCancelSectionPut**](doc/ControllCheckApi.md#apicontrollcheckvalidateorcancelsectionput) | **PUT** /api/ControllCheck/ValidateOrCancelSection | 
 [*ParamsApi*](doc/ParamsApi.md) | [**apiParamsCreateSectionPost**](doc/ParamsApi.md#apiparamscreatesectionpost) | **POST** /api/Params/createSection | 
 [*ParamsApi*](doc/ParamsApi.md) | [**apiParamsGetPreviousSectionGet**](doc/ParamsApi.md#apiparamsgetprevioussectionget) | **GET** /api/Params/getPreviousSection | 
 [*ParamsApi*](doc/ParamsApi.md) | [**apiParamsGetSectionCheckCountGet**](doc/ParamsApi.md#apiparamsgetsectioncheckcountget) | **GET** /api/Params/getSectionCheckCount | 
@@ -84,15 +85,17 @@ Class | Method | HTTP request | Description
 
  - [AuthResponse](doc/AuthResponse.md)
  - [Car](doc/Car.md)
- - [CarControllResponse](doc/CarControllResponse.md)
- - [CheckUpRequest](doc/CheckUpRequest.md)
- - [CheckUpResponse](doc/CheckUpResponse.md)
- - [ControllCheckRequest](doc/ControllCheckRequest.md)
- - [ControllCheckUpResponse](doc/ControllCheckUpResponse.md)
- - [CreateSection](doc/CreateSection.md)
+ - [CarResponse](doc/CarResponse.md)
+ - [ControlSection](doc/ControlSection.md)
+ - [ControlState](doc/ControlState.md)
+ - [CreateCheckUpRequest](doc/CreateCheckUpRequest.md)
+ - [CreateControlRequest](doc/CreateControlRequest.md)
+ - [EnumControlState](doc/EnumControlState.md)
+ - [HandleSection](doc/HandleSection.md)
+ - [NewSection](doc/NewSection.md)
+ - [ParamSectionResponse](doc/ParamSectionResponse.md)
  - [ROLE](doc/ROLE.md)
- - [Section](doc/Section.md)
- - [SectionResponse](doc/SectionResponse.md)
+ - [SectionCheckUps](doc/SectionCheckUps.md)
  - [SignInModel](doc/SignInModel.md)
  - [SignupModel](doc/SignupModel.md)
  - [UserInfo](doc/UserInfo.md)
