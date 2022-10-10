@@ -372,6 +372,34 @@ paths:
       responses:
         '200':
           description: Success
+  /api/Params/getCheckListBySection:
+    get:
+      tags:
+        - Params
+      parameters:
+        - name: sectionid
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CheckUpResponse'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CheckUpResponse'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CheckUpResponse'
 components:
   schemas:
     AuthResponse:
@@ -492,6 +520,21 @@ components:
           nullable: true
         dateExpirationVisite:
           type: string
+          nullable: true
+      additionalProperties: false
+    CheckUpResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
+        name:
+          type: string
+          nullable: true
+        availableState:
+          type: array
+          items:
+            type: string
           nullable: true
       additionalProperties: false
     ControlSection:

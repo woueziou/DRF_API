@@ -77,6 +77,7 @@ Class | Method | HTTP request | Description
 [*ControllCheckApi*](doc/ControllCheckApi.md) | [**apiControllCheckMakeCheckupPost**](doc/ControllCheckApi.md#apicontrollcheckmakecheckuppost) | **POST** /api/ControllCheck/MakeCheckup | 
 [*ControllCheckApi*](doc/ControllCheckApi.md) | [**apiControllCheckValidateOrCancelSectionPut**](doc/ControllCheckApi.md#apicontrollcheckvalidateorcancelsectionput) | **PUT** /api/ControllCheck/ValidateOrCancelSection | 
 [*ParamsApi*](doc/ParamsApi.md) | [**apiParamsCreateSectionPost**](doc/ParamsApi.md#apiparamscreatesectionpost) | **POST** /api/Params/createSection | 
+[*ParamsApi*](doc/ParamsApi.md) | [**apiParamsGetCheckListBySectionGet**](doc/ParamsApi.md#apiparamsgetchecklistbysectionget) | **GET** /api/Params/getCheckListBySection | 
 [*ParamsApi*](doc/ParamsApi.md) | [**apiParamsGetPreviousSectionGet**](doc/ParamsApi.md#apiparamsgetprevioussectionget) | **GET** /api/Params/getPreviousSection | 
 [*ParamsApi*](doc/ParamsApi.md) | [**apiParamsGetSectionCheckCountGet**](doc/ParamsApi.md#apiparamsgetsectioncheckcountget) | **GET** /api/Params/getSectionCheckCount | 
 
@@ -86,6 +87,7 @@ Class | Method | HTTP request | Description
  - [AuthResponse](doc/AuthResponse.md)
  - [Car](doc/Car.md)
  - [CarResponse](doc/CarResponse.md)
+ - [CheckUpResponse](doc/CheckUpResponse.md)
  - [ControlSection](doc/ControlSection.md)
  - [ControlState](doc/ControlState.md)
  - [CreateCheckUpRequest](doc/CreateCheckUpRequest.md)

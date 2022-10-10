@@ -17,6 +17,7 @@ export 'package:drf_api/src/api/params_api.dart';
 export 'package:drf_api/src/model/auth_response.dart';
 export 'package:drf_api/src/model/car.dart';
 export 'package:drf_api/src/model/car_response.dart';
+export 'package:drf_api/src/model/check_up_response.dart';
 export 'package:drf_api/src/model/control_section.dart';
 export 'package:drf_api/src/model/control_state.dart';
 export 'package:drf_api/src/model/create_check_up_request.dart';

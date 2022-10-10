@@ -17,6 +17,7 @@ import 'package:drf_api/src/model/date.dart';
 import 'package:drf_api/src/model/auth_response.dart';
 import 'package:drf_api/src/model/car.dart';
 import 'package:drf_api/src/model/car_response.dart';
+import 'package:drf_api/src/model/check_up_response.dart';
 import 'package:drf_api/src/model/control_section.dart';
 import 'package:drf_api/src/model/control_state.dart';
 import 'package:drf_api/src/model/create_check_up_request.dart';
@@ -37,6 +38,7 @@ part 'serializers.g.dart';
   AuthResponse,
   Car,
   CarResponse,
+  CheckUpResponse,
   ControlSection,
   ControlState,
   CreateCheckUpRequest,
@@ -55,6 +57,10 @@ Serializers serializers = (_$serializers.toBuilder()
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(ControlSection)]),
         () => ListBuilder<ControlSection>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(CheckUpResponse)]),
+        () => ListBuilder<CheckUpResponse>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(ControlState)]),
